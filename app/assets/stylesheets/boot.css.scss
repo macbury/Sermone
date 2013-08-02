@@ -1,0 +1,74 @@
+
+@import "bootstrap/glyphicons";
+@import "twitter/bootstrap";
+
+.navbar {
+  border-radius: 0px !important;
+}
+
+body {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+@media screen and (min-width: 0) {
+
+  .navbar-brand {
+    float: left;
+    margin-left: -($navbar-padding-horizontal);
+    margin-right: 5px;
+  }
+  .navbar-nav {
+    float: left;
+    // undo margin to make nav extend full height of navbar
+    margin-top: 0;
+    margin-bottom: 0;
+
+    > li {
+      float: left;
+      > a {
+        border-radius: 0;
+      }
+    }
+
+    &.pull-right {
+      float: right;
+      width: auto;
+    }
+  }
+
+  // Required to make the collapsing navbar work on regular desktops
+  .navbar-toggle {
+    position: relative;
+    top: auto;
+    left: auto;
+    display: none;
+  }
+  .nav-collapse.collapse {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+}
+
+.chat {
+  .message {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;  
+    margin-top: 0px;
+  }
+  
+}
+
+.login-form {
+  input[type="text"] {
+    width: 180px;
+  }
+}
+
+.navbar {
+  .ok-btn {
+    margin-left: 10px;
+  }
+}

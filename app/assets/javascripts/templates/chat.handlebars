@@ -1,0 +1,59 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <a class="navbar-brand visible-md visible-lg" href="/">{{ t "chat.title" }}</a>
+
+  {{#if loginError}}
+    <a href="#" class="pull-right btn btn-default navbar-btn ok-btn" {{action "reset"}}>OK</a>
+    <p class="navbar-text pull-right">
+      <span class="label label-danger">Błąd</span>
+      {{loginError}} 
+    </p>
+
+  {{else}}
+    {{#if loggedIn}}
+      <ul class="nav navbar-nav pull-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ t "chat.navbar.profile" }} <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">{{ t "chat.navbar.change_avatar" }}</a></li>
+            <li><a href="#">{{ t "chat.navbar.change_password" }}</a></li>
+            <li class="divider"></li>
+            <li><a href="#">{{ t "chat.navbar.logout" }}</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <p class="navbar-text pull-right" style="margin-right: 5px;">Signed in as <a href="#" class="navbar-link">Mark Otto</a></p>
+    {{else}}
+      <form class="navbar-form pull-right login-form" {{action 'signInAction' on="submit"}}>
+        {{input value=password type="text" class="form-control" disabled=isProcessingLogin placeholder="Nick"}}
+        <button type="submit" class="btn btn-default navbar-btn" style="margin-top: 0px;" {{bindAttr disabled="isProcessingLogin"}}>
+          {{#if isProcessingLogin}}
+            {{ t "chat.login.button.processing" }}
+          {{else}}
+            {{ t "chat.login.button.submit" }}
+          {{/if}}
+        </button>
+      </form>
+    {{/if}}
+  {{/if}}
+</div>
+
+<div class="chat">
+    <div class="media message">
+      <a class="pull-left" href="#">
+        <img class="media-object" data-src="holder.js/64x64" alt="64x64" style="width: 48px; height: 48px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACDUlEQVR4Xu2Yz6/BQBDHpxoEcfTjVBVx4yjEv+/EQdwa14pTE04OBO+92WSavqoXOuFp+u1JY3d29rvfmQ9r7Xa7L8rxY0EAOAAlgB6Q4x5IaIKgACgACoACoECOFQAGgUFgEBgEBnMMAfwZAgaBQWAQGAQGgcEcK6DG4Pl8ptlsRpfLxcjYarVoOBz+knSz2dB6vU78Lkn7V8S8d8YqAa7XK83ncyoUCjQej2m5XNIPVmkwGFC73TZrypjD4fCQAK+I+ZfBVQLwZlerFXU6Her1eonreJ5HQRAQn2qj0TDukHm1Ws0Ix2O2260RrlQqpYqZtopVAoi1y+UyHY9Hk0O32w3FkI06jkO+74cC8Dh2y36/p8lkQovFgqrVqhFDEzONCCoB5OSk7qMl0Gw2w/Lo9/vmVMUBnGi0zi3Loul0SpVKJXRDmphvF0BOS049+n46nW5sHRVAXMAuiTZObcxnRVA5IN4DJHnXdU3dc+OLP/V63Vhd5haLRVM+0jg1MZ/dPI9XCZDUsbmuxc6SkGxKHCDzGJ2j0cj0A/7Mwti2fUOWR2Km2bxagHgt83sUgfcEkN4RLx0phfjvgEdi/psAaRf+lHmqEviUTWjygAC4EcKNEG6EcCOk6aJZnwsKgAKgACgACmS9k2vyBwVAAVAAFAAFNF0063NBAVAAFAAFQIGsd3JN/qBA3inwDTUHcp+19ttaAAAAAElFTkSuQmCC">
+      </a>
+      <div class="media-body">
+        <h4 class="media-heading">ByteEater</h4>
+        <p> Jak słucham Martina to sie głodny robię ....zaraz ide smażyć hamburgery </p>
+      </div>
+    </div>
+</div>
+
+{{#if loggedIn}}
+  <div class="navbar navbar-fixed-bottom">
+    <form class="navbar-form" action="">
+      <input type="text" class="form-control col-lg-8" placeholder="Search">
+    </form>
+  </div>
+{{/if}}

@@ -1,0 +1,15 @@
+pl:
+  chat:
+    title: "Sermone"
+    navbar:
+      profile: "Profil"
+      change_avatar: "Zmień avatar"
+      change_password: "Zmień hasło"
+      logout: "Wyloguj się"
+    login:
+      failure: "Nie można się zalogować, błąd serwera!"
+      nick:
+        placeholder: "Nick"
+      button:
+        processing: "Proszę czekać..."
+        submit: "Dołącz"
